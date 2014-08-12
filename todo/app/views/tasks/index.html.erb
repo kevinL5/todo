@@ -1,0 +1,13 @@
+<h1>Welcome in your todo</h1>
+
+<div class="alert">
+  <p><%= flash[:alert] %></p>
+</div>
+
+<h2>Here's yours tasks :</h2>
+<ul><% @tasks.each do |task| %>
+  <li><%= task.name %> <%= link_to 'Show', task_path(task) %> <%= link_to 'Edit', task_edit_path(task) %> <%= link_to 'Delete', task_path(task), method: :delete %></li>
+  <% end%>
+</ul>
+
+<h3><%= link_to 'Add a new task', task_new_path %></h3>

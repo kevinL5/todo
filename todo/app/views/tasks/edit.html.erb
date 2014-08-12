@@ -1,0 +1,10 @@
+<%= form_for @task do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.select( :status, { 'Not done' => false, 'Done' => true})%><br />
+
+  <%= f.submit %>
+<% end %>
+
+<p><%= link_to 'Back', tasks_path %> <%= link_to 'Delete', task_path(@task), method: :delete %></p>
