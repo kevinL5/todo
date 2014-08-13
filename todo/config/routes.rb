@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+get 'auth/:provider/callback', to: 'sessions#create'
+get 'auth/failure', to: redirect('/')
+get 'signout', to: 'sessions#destroy', as: 'signout'
+
+
   root 'tasks#index'
 
   get 'tasks', to: 'tasks#index', as: :tasks
@@ -17,6 +26,8 @@ Rails.application.routes.draw do
   patch 'tasks/:id', to: 'tasks#update'
 
   delete 'tasks/:id', to: 'tasks#destroy', as: :task_delete
+
+
 
 
 
